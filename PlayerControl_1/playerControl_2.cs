@@ -1,4 +1,8 @@
+using NUnit.Framework;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using static UnityEngine.UI.Image;
 
 public class control : MonoBehaviour
 {
@@ -6,11 +10,13 @@ public class control : MonoBehaviour
     public Vector3 moveZ;
     public float speed = 3f;
     public float z;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    bool isground;
+
+
     void Start()
     {
         transform.position = new Vector3(0, 2, 0); // başlangıç pozisyonunu start transform'undan alır.
+        isground = true;
         /*
            _rb = GetComponent<Rigidbody>(); 
            
@@ -22,17 +28,36 @@ public class control : MonoBehaviour
 
     void Update()
     {
-        z = Input.GetAxis("Horizontal");
+        z = Input.GetAxis("Horizontal"); // a tuşuna basılırsa -1, d tuşuna basılırsa +1, onun dışında hepsinde 0 döner
+        // buradan vasılan tuş ile float sayısı alınır
     }
 
-    // Update is called once per frame
     void FixedUpdate()
-    {
+    {   // alınan float sayısı yeni vektöre yön olarak aktarılır
         moveZ = new Vector3(0, 0, -z);
+
+        bool isGrounded = Physics.SphereCast(transform.position, 0.3f, Vector3.down, out RaycastHit hit, 0.2f);
+
+        // aktarılan yeni vektörün bilgisi hareket içerisinde kullanılır
         _rb.MovePosition(_rb.position + moveZ * speed * Time.fixedDeltaTime);
 
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            _rb.AddForce(Vector3.up * 12f, ForceMode.Impulse);
+            isground = false;
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            transform.localScale = new Vector3(1, 0.5f, 1);
+        }
+
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+
         /*
-        old method
         Vector3 move = Vector3.zero;
 
         if (Input.GetKey(KeyCode.Space))
