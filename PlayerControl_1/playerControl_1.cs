@@ -1,3 +1,8 @@
+/* READ HERE
+I developed a basic character controller with 4-way movement (WASD) and jump logic, created as a practice project to understand
+custom movement logic before diving into Rigidbody physics.
+*/
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
