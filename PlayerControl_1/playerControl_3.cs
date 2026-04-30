@@ -1,6 +1,10 @@
+/* READ HERE
+I practiced my Unity skills by implementing a character controller that features smooth mouse look, direction-based movement, 
+grounded-only jumping, and a physics-based crouching system designed to prevent collision conflicts.
+*/
+
 using Unity.Mathematics;
 using UnityEngine;
-
 public class player : MonoBehaviour
 {
     public Rigidbody rb;
