@@ -1,5 +1,5 @@
 /* READ HERE
-"I developed a 2.5D character controller featuring movement along a fixed axis, grounded-only jumping, and a physics-compliant crouching system.
+I developed a 2.5D character controller featuring movement along a fixed axis, grounded-only jumping, and a physics-compliant crouching system.
 */
 
 using NUnit.Framework;
