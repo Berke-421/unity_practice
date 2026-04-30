@@ -28,23 +28,23 @@ public class player : MonoBehaviour
 
     void FixedUpdate()
     {
-        // ileri - geri gitmek
+        // ileri - geri gitmek | forward - back
         move = transform.forward * z; // yön bilgisini alır (+1 mi -1 mi)
         rb.MovePosition(rb.position + move * speed * Time.fixedDeltaTime); // mevcut pozisyona girilen yön bilgisi eklenir
 
-        // sağ - sol bakmak
+        // sağ - sol bakmak | right - left
         float turn = h * rotationSpeed * Time.fixedDeltaTime; // derece sayısı elde edilir
         Quaternion rot = Quaternion.Euler(0f, turn, 0f); // derece sayısı, yön bilgisine aktarılır
         rb.MoveRotation(rb.rotation * rot); // objenin mevcut yönüne eklenir
 
-        // zıpamak
+        // zıplamak | jump
         bool isGrounded = Physics.SphereCast(transform.position, 0.3f, Vector3.down, out RaycastHit hit, 0.2f);
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(Vector3.up * 6f, ForceMode.Impulse);
         }
 
-        // eğilmek
+        // eğilmek | crouch
         if (Input.GetKey(KeyCode.LeftShift))
         {
             rb.isKinematic = true;
