@@ -28,15 +28,15 @@ public class control : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter(Collision collision) // fizik motoruna uygun düşman çarpışmasını algılar
+    private void OnCollisionEnter(Collision collision) // Detects enemy collisions compatible with the physics engine.
     {
         if (collision.gameObject.CompareTag("dusman"))
         {
-            gameObject.SetActive(false); // gameObject = 'GameObject' sınıfından nesne referansı
+            gameObject.SetActive(false);
         }
     }
 
-    private void OnTriggerEnter(Collider other) // fizik motorundan bağımsız çarpışmayı algılar
+    private void OnTriggerEnter(Collider other) // Detects collisions independently of the physics engine.
     {
         if (other.CompareTag("odul"))
         {
@@ -49,23 +49,23 @@ public class control : MonoBehaviour
 
     void FixedUpdate()
     {
-        // ileri - geri gitmek
+        // forward - back
         move = transform.forward * z; // yön bilgisini alır (+1 mi -1 mi)
         rb.MovePosition(rb.position + move * speed * Time.fixedDeltaTime); // mevcut pozisyona girilen yön bilgisi eklenir
 
-        // sağ - sol bakmak
+        // right - left
         float turn = h * rotationSpeed * Time.fixedDeltaTime; // derece sayısı elde edilir
         Quaternion rot = Quaternion.Euler(0f, turn, 0f); // derece sayısı, yön bilgisine aktarılır
         rb.MoveRotation(rb.rotation * rot); // objenin mevcut yönüne eklenir
 
-        // zıpamak
+        // jump
         bool isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f);
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(Vector3.up * 12f, ForceMode.Impulse);
         }
 
-        // eğilmek
+        // Crouch
         if (Input.GetKey(KeyCode.LeftShift))
         {
             rb.isKinematic = true;
