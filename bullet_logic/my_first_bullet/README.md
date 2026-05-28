@@ -1,2 +1,3 @@
-# Python_konu_anlatimi
-Python, okunabilirliği yüksek, öğrenmesi kolay ve çok amaçlı bir programlama dilidir. Web geliştirme, veri analizi, yapay zeka, otomasyon ve oyun geliştirme gibi birçok alanda kullanılır. Dinamik tipli ve yorumlamalı yapısıyla hızlı geliştirme imkânı sağlar.
+- This is the first method I used to make the bullet spawn from the enemy.
+
+- Note: The bullet object is a child of the enemy object.
