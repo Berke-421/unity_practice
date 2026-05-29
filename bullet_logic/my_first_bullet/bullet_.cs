@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class bullet_ : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
