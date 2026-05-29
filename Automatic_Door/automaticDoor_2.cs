@@ -7,15 +7,12 @@ using UnityEngine;
 
 public class door : MonoBehaviour
 {
-    public oyuncu p;
+    public oyuncu p; // oyuncu = player
     public float speed;
     public bool yaklastiMi; // // Is the player close?
 
     void Start()
     {
-        speed = 4f;
-        if (p == null)
-            p = GetComponent<oyuncu>();
     }
 
     // Update is called once per frame
