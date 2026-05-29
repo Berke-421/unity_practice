@@ -13,6 +13,8 @@ public class door : MonoBehaviour
 
     void Start()
     {
+        speed = 4f;
+        yaklastiMi = false;
     }
 
     // Update is called once per frame
