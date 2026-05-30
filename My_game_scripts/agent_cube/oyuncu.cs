@@ -2,6 +2,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
+// note: oyuncu means player
 public class oyuncu : MonoBehaviour
 {
     [Header("Physics Components")]
