@@ -1,2 +1,2 @@
-# Python_konu_anlatimi
-Python, okunabilirliği yüksek, öğrenmesi kolay ve çok amaçlı bir programlama dilidir. Web geliştirme, veri analizi, yapay zeka, otomasyon ve oyun geliştirme gibi birçok alanda kullanılır. Dinamik tipli ve yorumlamalı yapısıyla hızlı geliştirme imkânı sağlar.
+# Agent Cube scripts
+- This is the 4th game I have developed. The project features core mechanics such as player-enemy interactions, an enemy manager system, bullet collision and behavior, automatic doors, and a capture-the-flag mechanic
