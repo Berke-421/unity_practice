@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using UnityEngine;
 
-
+// odul means reward
 public class OdulManager : MonoBehaviour
 {
     public silah silah_; // Reference to access the 'silah' (weapon) script.
