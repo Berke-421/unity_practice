@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// silah means wapon
 // weapon script: allows the weapon to fire at enemies when the player is within a certain distance.
 // Also checks the player's win state and disables firing / handles enemy destruction when the player wins.
 public class silah : MonoBehaviour
