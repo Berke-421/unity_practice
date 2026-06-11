@@ -1,0 +1,39 @@
+using UnityEngine;
+using UnityEngine.AI;
+
+public class Enemy_al4 : MonoBehaviour
+{
+    public NavMeshAgent agent;
+
+    public Player_al4 player;
+    
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        if (agent == null)
+            agent = GetComponent<NavMeshAgent>();
+
+        if (player == null)
+            player = FindAnyObjectByType<Player_al4>();
+
+        agent.speed = 2f;
+    }
+
+    public void catchPlayer()
+    {
+        agent.SetDestination(player.transform.position);
+    }
+    public void runAway()
+    {
+        if (player == null || agent == null) // if enemy or player reference is missing, do not perform run away logic
+            return;
+
+        if (Vector3.Distance(player.transform.position, transform.position) < 20f) // if the player is within 20 units of the enemy, start running away
+        {
+            Vector3 dir = (transform.position - player.transform.position).normalized; // calculate direction from player to enemy and normalize
+            Vector3 runTarget = transform.position + dir * 10f; // escape target is 10 units away from current position in the escape direction
+
+            agent.SetDestination(runTarget); // set the NavMeshAgent destination so the enemy moves away from the player
+        }
+    }
+}
