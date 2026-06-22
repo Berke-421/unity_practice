@@ -1,2 +1,2 @@
-# Python_konu_anlatimi
-Python, okunabilirliği yüksek, öğrenmesi kolay ve çok amaçlı bir programlama dilidir. Web geliştirme, veri analizi, yapay zeka, otomasyon ve oyun geliştirme gibi birçok alanda kullanılır. Dinamik tipli ve yorumlamalı yapısıyla hızlı geliştirme imkânı sağlar.
+# Island Escape
+- These are the scripts for my 7th game, showcasing the architecture, dependencies between scripts, and the core code handling the in-game mechanics.
